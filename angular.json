@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MAailRouting"
+    }
+  },
+  "defaultProject": "MAailRouting",
+  "cli": {
+    "analytics": "9bbe22a3-f949-43df-a2af-0ef7ed897493"
+  }
 }

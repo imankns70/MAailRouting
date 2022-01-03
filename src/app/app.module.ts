@@ -8,7 +8,12 @@ import { TooltipDirective } from './credit-card/tooltip.directive';
 import { OneComponent } from './change-detection/one/one.component';
 import { TwoComponent } from './change-detection/two/two.component';
 import { ChangeDetectionComponent } from './change-detection/change-detection.component';
-
+import { AuthFormComponent } from './projection/auth-form/auth-form.component';
+import { AuthRememberComponent } from './projection/auth-remember/auth-remember.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ProjectionComponent } from './projection/projection.component';
+import { AuthMessageComponent } from './projection/auth-message/auth-message.componet';
 @NgModule({
   declarations: [	
     AppComponent,
@@ -17,11 +22,14 @@ import { ChangeDetectionComponent } from './change-detection/change-detection.co
       CreditCardDirective,
       TooltipDirective,
       ChangeDetectionComponent,
-      OneComponent,TwoComponent
+      OneComponent,TwoComponent,
+      ProjectionComponent,AuthFormComponent,AuthRememberComponent,AuthMessageComponent
 
    ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
