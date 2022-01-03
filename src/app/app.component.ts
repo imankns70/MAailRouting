@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MAailRouting';
+
+  items = [
+    { name: "iman", age: 34, location: "ahvaz" },
+    { name: "reza", age: 30, location: "tehran" },
+    { name: "farhan", age: 25, location: "shiraz" }
+  ]
 }
