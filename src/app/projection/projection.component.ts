@@ -8,14 +8,14 @@ export interface User {
   selector: 'projection',
   template: `
     <div>
-      <auth-form 
+      <!-- <auth-form 
         (submitted)="createUser($event)">
         <h3>Create account</h3>
        
         <button type="submit">
           Join us
         </button>
-      </auth-form>
+      </auth-form> -->
       <!--  -->
      
   
