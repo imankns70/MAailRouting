@@ -14,22 +14,32 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProjectionComponent } from './projection/projection.component';
 import { AuthMessageComponent } from './projection/auth-message/auth-message.componet';
-@NgModule({
-  declarations: [	
-    AppComponent,
-      CreditCardComponent,
-      CreditCardComponent,
-      CreditCardDirective,
-      TooltipDirective,
-      ChangeDetectionComponent,
-      OneComponent,TwoComponent,
-      ProjectionComponent,AuthFormComponent,AuthRememberComponent,AuthMessageComponent
+import { MailModule } from './mail/mail.module';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
+export const ROUTES: Routes = [
+  { path: '**', redirectTo: 'folder/inbox' }
+];
 
-   ],
+@NgModule({
+  declarations: [
+    AppComponent,
+    CreditCardComponent,
+    CreditCardComponent,
+    CreditCardDirective,
+    TooltipDirective,
+    ChangeDetectionComponent,
+    OneComponent, TwoComponent,
+    ProjectionComponent, AuthFormComponent, AuthRememberComponent, AuthMessageComponent,
+
+  ],
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MailModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
