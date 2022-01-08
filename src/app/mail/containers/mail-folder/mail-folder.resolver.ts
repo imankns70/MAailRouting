@@ -8,6 +8,7 @@ import { Mail } from '../../models/mail.interface';
 export class MailFolderResolve implements Resolve<Mail[]> {
   constructor(private mailService: MailService) {}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+   
     return this.mailService.getFolder(route.params.name);
   }
 }

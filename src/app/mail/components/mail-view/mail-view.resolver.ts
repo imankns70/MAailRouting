@@ -8,6 +8,7 @@ import { Mail } from '../../models/mail.interface';
 export class MailViewResolver implements Resolve<Mail> {
   constructor(private mailService: MailService) {}
   resolve(route: ActivatedRouteSnapshot) {
+    debugger
     return this.mailService.getMessage(route.params.id);
   }
 }

@@ -10,28 +10,33 @@ import { MailViewComponent } from './components/mail-view/mail-view.component';
 import { MailFolderResolve } from './containers/mail-folder/mail-folder.resolver';
 import { MailService } from './mail.service';
 import { MailViewResolver } from './components/mail-view/mail-view.resolver';
-
 export const ROUTES: Routes = [
   {
-    path: 'folder/:name',
-    component: MailFolderComponent,
-    resolve: {
-      messages: MailFolderResolve
-    }
-  },
-  {
-    path: 'message/:id',
-    component: MailViewComponent,
-    outlet: 'pane',
-    resolve: {
-      message: MailViewResolver
-    }
+    path: 'mail',
+    component: MailAppComponent,
+    children: [
+      {
+        path: 'folder/:name',
+        component: MailFolderComponent,
+        resolve: {
+          messages: MailFolderResolve
+        }
+      },
+      {
+        path: 'message/:id',
+        component: MailViewComponent,
+        outlet: 'pane',
+        resolve: {
+          message: MailViewResolver
+        }
+      }
+    ]
   }
 ];
-
+ 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule,    
     RouterModule.forChild(ROUTES)
   ],
   declarations: [
@@ -42,7 +47,8 @@ export const ROUTES: Routes = [
   ],
   providers: [
     MailService,
-    MailFolderResolve
+    MailFolderResolve,
+    MailViewResolver
   ],
   exports: [
     MailAppComponent
