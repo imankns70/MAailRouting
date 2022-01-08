@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Mail } from '../../models/mail.interface';
 
@@ -21,5 +22,13 @@ import { Mail } from '../../models/mail.interface';
 export class MailItemComponent {
   @Input()
   message: Mail;
-  
+
+  //constructor(private router: Router) { }
+
+  // navigateToMessage() {
+  //   return this.router.navigate(
+  //     ['', { outlest: { pane: ['message', this.message.id] } }]
+  //   )
+  // }
+
 }

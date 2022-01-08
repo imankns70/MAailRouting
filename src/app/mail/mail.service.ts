@@ -11,6 +11,7 @@ const db$: Observable<Mail[]> = of([
     "folder": "inbox",
     "from": "Jane Smith",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, neque at ultricies fringilla, ligula metus",
+    "full": "Full message from Jane Smith",
     "timestamp": 1487848162905
   },
   {
@@ -18,6 +19,7 @@ const db$: Observable<Mail[]> = of([
     "folder": "inbox",
     "from": "John Doe",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, neque at ultricies fringilla, ligula metus",
+    "full": "Full message from John Doe",
     "timestamp": 1487845787719
   },
   {
@@ -25,6 +27,7 @@ const db$: Observable<Mail[]> = of([
     "folder": "inbox",
     "from": "Joseph Hanes",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, neque at ultricies fringilla, ligula metus",
+    "full": "Full message from Joseph Hanes",
     "timestamp": 1487845787719
   },
   {
@@ -32,6 +35,7 @@ const db$: Observable<Mail[]> = of([
     "folder": "trash",
     "from": "Laurence Murray",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, neque at ultricies fringilla, ligula metus",
+    "full": "Full message from Laurence Murray",
     "timestamp": 1487845787719
   }
 ]);
@@ -43,4 +47,10 @@ export class MailService {
       map((mails: Mail[]) => mails.filter(a => a.folder === folder))
     );
   }
+  getMessage(id: string): Observable<Mail> {
+    return db$.pipe(
+      map((mails: Mail[]) => mails.find(a => a.id === parseInt(id, 10)))
+    );
+  }
+
 } 

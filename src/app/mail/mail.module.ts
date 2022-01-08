@@ -9,6 +9,7 @@ import { MailViewComponent } from './components/mail-view/mail-view.component';
 
 import { MailFolderResolve } from './containers/mail-folder/mail-folder.resolver';
 import { MailService } from './mail.service';
+import { MailViewResolver } from './components/mail-view/mail-view.resolver';
 
 export const ROUTES: Routes = [
   {
@@ -21,7 +22,10 @@ export const ROUTES: Routes = [
   {
     path: 'message/:id',
     component: MailViewComponent,
-    outlet: 'pane'
+    outlet: 'pane',
+    resolve: {
+      message: MailViewResolver
+    }
   }
 ];
 
