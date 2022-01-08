@@ -21,4 +21,5 @@ import { Mail } from '../../models/mail.interface';
 export class MailItemComponent {
   @Input()
   message: Mail;
+  
 }
