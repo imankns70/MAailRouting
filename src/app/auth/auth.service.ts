@@ -12,7 +12,7 @@ export class AuthService {
     return of(this.user.isAdmin)
   } 
   isLoggedIn() {
-    return of(true);
+    return of(false);
   }
 
 }

@@ -18,11 +18,40 @@ import { Mail } from '../../models/mail.interface';
       <p>not message avaliable</p>
     </ng-template>
     </div>
+    <div class="mail-reply">
+      <textarea
+        (change)="updateReply($event.target.value)"
+        placeholder="Type your reply..."
+        [value]="reply">
+      </textarea>
+      <button type="button" (click)="sendReply()">
+        Send
+      </button>
+    </div>
   `
 })
 export class MailViewComponent {
   message$: Observable<Mail> = this.route.data.pipe(pluck('message'));
 
+  reply = '';
+  hasUnsavedChanges = false;
+
   constructor(private route: ActivatedRoute) { }
 
+  ngOnInit() {
+    this.route.params.subscribe(() => {
+      this.reply = '';
+      this.hasUnsavedChanges = false;
+    });
+  }
+
+  updateReply(value: string) {
+    this.reply = value;
+    this.hasUnsavedChanges = true;
+  }
+
+  sendReply() {
+    
+
+  }
 }
